@@ -2,7 +2,7 @@ class Averager:
     def __init__(self) -> None:
         self.series: list = []
 
-    def __call__(self, value):
+    def __call__(self, value) -> float:
         self.series.append(value)
         total = sum(self.series)
         return total / len(self.series)
@@ -17,5 +17,5 @@ if __name__ == '__main__':
     avg = Averager()
     for i in range(10):
         avg(i)
-        # print(avg)
+        print(avg)
     print(avg)
