@@ -87,20 +87,14 @@ class Racional:
 
 
 if __name__ == '__main__':
-    r = Racional(3, 4)
-    r1 = Racional(5, 8)
+    r1 = Racional(3, 4)
+    r2 = Racional(5, 8)
     r3 = Racional(6, 8)
-    # r.inveterSinal()
-    r2 = r + r1 + r3
-    r4 = r + r3 - r1
-    r5 = (r + r + r3) + (r + r + r3)
-    r6 = r5 + r5
-    r7 = r * r3
-    r8 = r / r1
-    # r2.inveterSinal()
-    print(r2.quociente())
+    r4 = r1 * r1
+    r5 = r4 - r3
+    r6 = Racional(1, 2)
+    r7 = r6 - r1
+
     print(r4)
     print(r5)
-    print(r6)
-    print(r7.quociente())
-    print(r8)
+    print(r7)
