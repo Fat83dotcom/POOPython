@@ -4,15 +4,17 @@ from math import factorial
 
 class ComparatorNumbers:
     def __init__(
-        self, init: int, finish: int, sequenceComparator: tuple
+        self, init: int, finish: int, sequenceComparator
     ) -> None:
         self.__n = finish
         self.__k = len(sequenceComparator)
         self.__numbers = range(init, finish)
         self.__sena: list = [
             (n, sequence)
-            for n, sequence in enumerate(combinations(self.__numbers, self.__k))
-            if sequence == sequenceComparator
+            for n, sequence in enumerate(
+                combinations(self.__numbers, self.__k)
+            )
+            if sequence == tuple(sequenceComparator)
         ]
 
     @property
@@ -20,8 +22,11 @@ class ComparatorNumbers:
         return self.__sena
 
     def __repr__(self) -> str:
-        return f'A posição da sequencia {self.sena[0][1]} -> '\
-            f'{self.sena[0][0]} de {self.totalNumberCombinations()}.'
+        if len(self.__sena) > 0:
+            return f'A posição da sequencia {self.sena[0][1]} -> '\
+                f'{self.sena[0][0]} de {self.totalNumberCombinations()}.'
+        else:
+            return f'{self.sena}'
 
     def totalNumberCombinations(self) -> int:
         return int(factorial(self.__n - 1) / (
@@ -30,7 +35,8 @@ class ComparatorNumbers:
 
 
 if __name__ == '__main__':
-    game: tuple = (21, 24, 33, 41, 48)
+    game = sorted([24, 56, 33, 48, 21, 41])
+    print(game)
     gen = ComparatorNumbers(1, 61, game)
     print(gen)
     print('Terminou.')
