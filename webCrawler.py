@@ -67,12 +67,11 @@ if __name__ == '__main__':
         ]
     ]
 
-    webSites: list = []
-    for row in siteData:
-        webSites.append(
-            WebSite(row[0], row[1], row[2], row[3])
-        )
+    webSites: list = [
+        WebSite(row[0], row[1], row[2], row[3]) for row in siteData
+    ]
 
-    crawler.parse(
-        webSites[0], 'https://www.brainstormtecnologia.tech'
-    )
+    for site in webSites:
+        crawler.parse(
+            site, site.url
+        )
