@@ -37,6 +37,6 @@ class ComparatorNumbers:
 if __name__ == '__main__':
     game = sorted([24, 56, 33, 48, 21, 41])
     print(game)
-    gen = ComparatorNumbers(1, 61, game)
+    gen = ComparatorNumbers(1, 60, game)
     print(gen)
     print('Terminou.')
